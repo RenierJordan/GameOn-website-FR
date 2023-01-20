@@ -153,6 +153,13 @@ main {
   background: #3876ac;
 }
 
+.thanks-button {
+  position: absolute;
+  bottom: 30px;
+  right: calc(50% - 72px);
+  padding: 1em 3em 1em 3em;
+}
+
 .smFont {
   font-size: 16px;
 }
@@ -225,6 +232,11 @@ input {
 }
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
+}
+
+.error {
+  font-size: 0.4em;
+  color: #e54858;
 }
 /* 
 input[data-error]::after {
@@ -463,6 +475,17 @@ input[data-error]::after {
   display: block;
   padding: 0;
 }
+
+#confirmation-modal {
+  display: none;
+  height: 70vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  text-align: center;
+}
+
 .copyrights {
   color: #fe142f;
   padding: 0;
