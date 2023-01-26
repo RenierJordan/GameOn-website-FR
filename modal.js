@@ -7,7 +7,6 @@ function editNav() {
   }
 }
 
-// DOM Elements
 const form = document.querySelector("form");
 const firstNameInput = document.getElementById("first");
 const lastNameInput = document.getElementById("last");
@@ -17,16 +16,6 @@ const quantityInput = document.getElementById("quantity");
 const radioButtons = document.querySelectorAll(".checkbox-input[type=radio]");
 const checkboxInput = document.getElementById("checkbox1");
 
-const errorMessages = {
-	lastName: "Veuillez entrer un nom comportant 2 caractères ou plus.",
-	firstName: "Veuillez entrer un prénom comportant 2 caractères ou plus.",
-	email: "Veuillez entrer une adresse email valide.",
-	birthdate:
-		"Veuillez entrer une date de naissance respectant le format JJ/MM/AAAA.",
-	quantity: "Veuillez entrer un nombre valide.",
-	location: "Veuillez choisir une ville.",
-	checkbox: "Veuillez accepter les conditions d'utilisations.",
-};
 
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
@@ -69,6 +58,7 @@ function openThanksModal () {
   thanksModal.style.display = 'flex';
 }
 
+// inputs validation functions 
 
 function FirstNameValidation() {
 const inputValue = firstNameInput.value;
@@ -140,20 +130,23 @@ function checkboxValidation() {
   else return true;
 }
 
+const errorMessages = {
+	lastName: "Veuillez entrer un nom comportant 2 caractères ou plus.",
+	firstName: "Veuillez entrer un prénom comportant 2 caractères ou plus.",
+	email: "Veuillez entrer une adresse email valide.",
+	birthdate:
+		"Veuillez entrer une date de naissance respectant le format JJ/MM/AAAA.",
+	quantity: "Veuillez entrer un nombre valide.",
+	location: "Veuillez choisir une ville.",
+	checkbox: "Veuillez accepter les conditions d'utilisations.",
+};
 
-const errorFirstName = document.querySelector(".errorFirst");
-const errorLastName = document.querySelector(".errorLast");
-const errorEmail = document.querySelector(".errorEmail");
-const errorBirthdate = document.querySelector(".errorBirthdate");
-const errorQuantity = document.querySelector(".errorQuantity");
-const errorLocation = document.querySelector(".errorLocation");
-const errorCheckbox = document.querySelector(".errorCheckbox");
-
-
+// function submit du formulaire lors du click sur le bouton
 
 submitButton.addEventListener("click", function(e) {
   e.preventDefault();
   let isValidInput = true;
+  // on verifie pour chaque input que l'information saisie est conforme sinon on affiche le message d'erreur pour cet input
   if (!FirstNameValidation()) {
 		isValidInput = false;
     
@@ -205,12 +198,13 @@ submitButton.addEventListener("click", function(e) {
   else checkboxInput.parentElement.setAttribute( "data-error-visible",false);
 
   
-
+// si toutes les informations sont correctes on ferme le modal formulaire, on ouvre celui de remerciement et on reset les entrées du formulaire
   if (isValidInput) {
     closeFormModal();
     openThanksModal();
     form.reset();
   }
+// sinon on empeche l'evenement de se derouler
   else e.preventDefault();
   
     
@@ -218,15 +212,6 @@ submitButton.addEventListener("click", function(e) {
   
 })
 
-/*const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-
-const first = urlParams.get("first");
-
-
-if (first && first !== "") {
-  
-}*/
 
 
 

@@ -234,10 +234,6 @@ input {
   border: 2px solid #e54858;
 }
 
-.error {
-  font-size: 0.4em;
-  color: #e54858;
-}
 /* 
 input[data-error]::after {
     content: attr(data-error);
