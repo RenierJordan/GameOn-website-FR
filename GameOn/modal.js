@@ -135,7 +135,7 @@ const errorMessages = {
 	firstName: "Veuillez entrer un prénom comportant 2 caractères ou plus.",
 	email: "Veuillez entrer une adresse email valide.",
 	birthdate:
-		"Veuillez entrer une date de naissance respectant le format JJ/MM/AAAA.",
+		"Veuillez entrer une date de naissance au format JJ/MM/AAAA.",
 	quantity: "Veuillez entrer un nombre valide.",
 	location: "Veuillez choisir une ville.",
 	checkbox: "Veuillez accepter les conditions d'utilisations.",
