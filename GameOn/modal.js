@@ -6,7 +6,7 @@ function editNav() {
     x.className = "topnav";
   }
 }
-
+// on recupere les elements dont on aura besoin 
 const form = document.querySelector("form");
 const firstNameInput = document.getElementById("first");
 const lastNameInput = document.getElementById("last");
@@ -52,7 +52,7 @@ function closeFormModal () {
   modalbg.style.display = 'none';
   formModal.style.display = 'none';
 }
-
+// launch thanks Modal
 function openThanksModal () {
   modalbg.style.display = 'block';
   thanksModal.style.display = 'flex';
@@ -62,6 +62,7 @@ function openThanksModal () {
 
 function FirstNameValidation() {
 const inputValue = firstNameInput.value;
+  // on verifie que l'input est non null et qu'il contient plus de 2 caracteres
 	if (inputValue !== null && inputValue.length > 2) return true;
 	else return false;
 }
@@ -75,6 +76,7 @@ function LastNameValidation() {
 function emailValidation() { 
   const mailFormat = /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/gi;
   const inputValue = document.getElementById("email").value;
+  // on verifie que l'input correspond au format d'une adresse mail
   if (mailFormat.test(inputValue)) {
     return true;
   }
@@ -85,6 +87,7 @@ function emailValidation() {
 
 function BirthdateValidation() {
   let Value = document.getElementById("birthdate").value;
+  //on verifie que l'input correspond au format d'une date
   if (dateIsValid(new Date(Value))) {
     return true;
   }
@@ -101,6 +104,7 @@ function dateIsValid(date) {
 function quantityValidation() {
   const Value = document.getElementById("quantity").value;
   const numbers = /^[0-9]+$/;
+  // on verifie que l'input correspond au format d'un nombre
   if (numbers.test(Value)) {
     return true;
   }
@@ -115,6 +119,7 @@ function locationValidation() {
   const loc4 = document.getElementById ('location4');
   const loc5 = document.getElementById ('location5');
   const loc6 = document.getElementById ('location6');
+  // on vérifie si aucune ville n'est cochée
   if (!loc1.checked && !loc2.checked && !loc3.checked && !loc4.checked && !loc5.checked && !loc6.checked) {
     return false;
   }
@@ -124,12 +129,14 @@ function locationValidation() {
 
 function checkboxValidation() {
   const checkbox1 = document.getElementById("checkbox1");
+  // on verifie si la case des conditions d'utilisation est cochée
   if (!checkbox1.checked) {
     return false
   }
   else return true;
 }
 
+// on créé les différents messages d'erreur
 const errorMessages = {
 	lastName: "Veuillez entrer un nom comportant 2 caractères ou plus.",
 	firstName: "Veuillez entrer un prénom comportant 2 caractères ou plus.",
@@ -149,7 +156,7 @@ submitButton.addEventListener("click", function(e) {
   // on verifie pour chaque input que l'information saisie est conforme sinon on affiche le message d'erreur pour cet input
   if (!FirstNameValidation()) {
 		isValidInput = false;
-    
+    // si la validation renvoie false alors on affiche le message d'erreur et le changement de style du champ
     firstNameInput.parentElement.setAttribute( "data-error", errorMessages.firstName);
     firstNameInput.parentElement.setAttribute( "data-error-visible",true);
     
