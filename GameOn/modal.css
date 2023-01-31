@@ -234,6 +234,11 @@ input {
   border: 2px solid #e54858;
 }
 
+.formData-input {
+  
+}
+
+
 /* 
 input[data-error]::after {
     content: attr(data-error);
